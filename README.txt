@@ -3,15 +3,17 @@ composer create-project laravel/laravel nome-da-pasta
 cd nome-da-pasta
 php artisan serve
 
+clonando em outra maquina
+ composer install
+ cp .env.example .env
+ php artisan serve
+
+
 app 
 tudo que programos na pasta app
 
 config
 configurações
-
-
-
-
 
 
 
