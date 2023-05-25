@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProdutosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,13 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/teste/{algo?}', function ($algo = null) {
-    return "O teste funcionou - {$algo} - :-)";
-});
-
-
-Route::get('/teste-view/{algo?}', function ($algo = null) {
-    return view('teste-view', [
-        'valor_da_controller' => $algo,
-    ]);
-});
+Route::get('/produtos', [ProdutosController::class, 'index']);

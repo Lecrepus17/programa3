@@ -15,9 +15,12 @@ tudo que programos na pasta app
 config
 configurações
 
+Códigos
+ctrl + p para pesquisar arquivo
 
 
-
+criar um controller
+php artisan make:controller ProdutosController
 
 
 -----------------------------------------------------------------------------
@@ -64,3 +67,10 @@ ID do dispositivo	3428D1DB-F566-4E06-878E-926B86B4B4EC
 ID do Produto	00330-53319-88039-AAOEM
 Tipo de sistema	Sistema operacional de 64 bits, processador baseado em x64
 Caneta e toque	Nenhuma entrada à caneta ou por toque disponível para este vídeo
+
+
+
+-------------------------------------------------------------------------------------------------------
+
+
+extension pack blade tem que adicionar codigo
