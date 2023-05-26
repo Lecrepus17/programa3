@@ -6,6 +6,7 @@ php artisan serve
 clonando em outra maquina
  composer install
  cp .env.example .env
+ php artisan key:generate 
  php artisan serve
 
 
@@ -19,8 +20,17 @@ Códigos
 ctrl + p para pesquisar arquivo
 
 
-criar um controller
+criar um controller // model
 php artisan make:controller ProdutosController
+
+criar uma migration // banco
+php artisan make:migration create_produtos_table
+// crie banco .env 
+php artisan migrate
+php artisan migrate:refresh
+php artisan migrate:rollback
+
+
 
 
 -----------------------------------------------------------------------------
