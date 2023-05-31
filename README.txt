@@ -44,7 +44,10 @@ Esse comando lista todas as extensões instaladas e salva o resultado no arquivo
 local seguro, como um pendrive ou um serviço de armazenamento em nuvem, para usar em outra máquina. Para instalar as extensões em outra máquina, 
 basta copiar o arquivo "extensions.txt" para a máquina desejada e executar o seguinte comando na linha de comando:
 
+// se for windows
 Get-Content extensions.txt | ForEach-Object { code --install-extension $_ }
+// se for ubuntu
+cat extensions.txt | xargs -I {} code --install-extension {}
 
 
 Esse comando instala as extensões listadas no arquivo "extensions.txt" usando o comando "code --install-extension" para cada extensão. Dessa forma, 
