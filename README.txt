@@ -31,6 +31,9 @@ php artisan migrate:refresh
 php artisan migrate:rollback
 
 
+// criar model
+php artisan make:model Produto
+
 
 
 -----------------------------------------------------------------------------
