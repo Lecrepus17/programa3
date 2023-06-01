@@ -17,8 +17,13 @@ class ProdutosController extends Controller
         return view('produtos.add');
     }
     public function addSave(Request $form){
-        //  dd(Produto::create($form->toArray()));
-        Produto::create($form->toArray());
+        $dados = $form->validate([
+            'name' => 'required|unique:produtos|min:3',
+            'price' => 'required|min:0|numeric',
+            'quantity' => 'required|integer|min:0'
+        ]);
+
+        Produto::create($dados);
 
         return redirect()->route('produtos');
     }
