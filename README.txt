@@ -34,6 +34,12 @@ php artisan migrate:rollback
 // criar model
 php artisan make:model Produto
 
+// tradução de mensagens
+// extrai arquivos lang/en
+php artisan lang:publish
+// instalar pacote de lingua traduzido
+composer require lucascudo/laravel-pt-br-localization --dev
+php artisan vendor:publish --tag=laravel-pt-br-localization
 
 
 -----------------------------------------------------------------------------

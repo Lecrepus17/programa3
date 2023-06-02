@@ -27,7 +27,12 @@ class ProdutosController extends Controller
 
         return redirect()->route('produtos');
     }
-    public function view(){
-
+    public function alter(){
+        return view('produtos.add');
+    }
+    public function view(Produto $produto){
+        return view('produtos.view',[
+            'prod' => $produto
+        ]);
     }
 }
