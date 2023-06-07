@@ -2,6 +2,9 @@
 @section('title', 'titulo joia dos produtos')
 
 @section('content')
+@if (session('sucesso'))
+    <div style="background-color: greenyellow; color: rebeccapurple;"><marquee speed="10">{{session('sucesso')}}</marquee> </div>
+@endif
     <table border="1">
         <tr>
             <th>Nome</th>
