@@ -3,7 +3,6 @@ ahmadawais.shades-of-purple
 rholdos.twig-language-support
 DEVSENSE.phptools-vscode
 mrmlnc.vscode-apache
-CoenraadS.bracket-pair-colorizer-2
 onecentlin.laravel-extension-pack
 bmewburn.vscode-intelephense-client
 DEVSENSE.phptools-vscode

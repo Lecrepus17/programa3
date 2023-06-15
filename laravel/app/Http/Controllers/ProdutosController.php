@@ -49,4 +49,13 @@ class ProdutosController extends Controller
             'prod' => $produto
         ]);
     }
+    public function delete(Produto $produto){
+        return view('produtos.delete', [
+            'prod' => $produto,
+        ]);
+    }
+    public function deletefORrEAL(Produto $produto){
+        $produto->delete();
+        return redirect()->route('produtos')->with('sucesso', 'Produto deletado com sucesso!');
+    }
 }
