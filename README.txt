@@ -29,7 +29,8 @@ php artisan make:migration create_produtos_table
 php artisan migrate
 php artisan migrate:refresh
 php artisan migrate:rollback
-
+// deixar delete soft
+php artisan make:migration add_soft_deletes_to_produtos_table
 
 // criar model
 php artisan make:model Produto
