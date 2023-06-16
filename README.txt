@@ -7,6 +7,7 @@ clonando em outra maquina
  composer install
  cp .env.example .env
  php artisan key:generate 
+ php artisan migrate --seed 
  php artisan serve
 
 
@@ -41,8 +42,14 @@ php artisan lang:publish
 // instalar pacote de lingua traduzido
 composer require lucascudo/laravel-pt-br-localization --dev
 php artisan vendor:publish --tag=laravel-pt-br-localization
+ 
 
+// seeders conteudo banco
+php artisan make:seeder ProdutoSeeder
+php artisan db:seed    
 
+// factory (Seeder aleatória, gera dados aleatórios)
+php artisan make:factory ProdutoFactory
 -----------------------------------------------------------------------------
 salvando extenções
 
