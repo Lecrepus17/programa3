@@ -8,13 +8,21 @@ use Illuminate\Validation\Rule;
 
 class ProdutosController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
+        if ($request->isMethod('POST')){
+            $ord = $request->ord == 'asc' ? 'asc' : 'desc';
+            $busca = $request->busca;
+            $prods = Produto::where('name', 'LIKE', "%{$busca}%")->orderBy('name', $ord)->get();
+            return view('produtos.index', [
+                'prods' => $prods,
+            ]);
+        } else {
         $prods = Produto::all();
         // $prods = Produto::withTrashed()->get(); ou $prods = Produto::onlyTrashed()->get();
         return view('produtos.index', [
             'prods' => $prods,
         ]);
-    }
+    }}
     public function add(){
         return view('produtos.add');
     }

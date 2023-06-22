@@ -5,6 +5,15 @@
 @if (session('sucesso'))
     <div style="background-color: greenyellow; color: rebeccapurple;"><marquee speed="50">{{session('sucesso')}}</marquee> </div>
 @endif
+<form action="{{ route('produtos') }}" method="POST">
+    @csrf
+    <input type="text" name="busca">
+    <select name="ord">
+        <option value="asc">Crescente</option>
+        <option value="desc">Secrescente</option>
+    </select>
+    <input type="submit" value="buscar">
+</form>
     <table border="1">
         <tr>
             <th>Nome</th>

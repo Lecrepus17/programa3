@@ -50,6 +50,18 @@ php artisan db:seed
 
 // factory (Seeder aleatória, gera dados aleatórios)
 php artisan make:factory ProdutoFactory
+
+
+// request o que vem do Post 
+ public function index(Request $request){
+        $prods = Produto::all();
+        // $prods = Produto::withTrashed()->get(); ou $prods = Produto::onlyTrashed()->get();
+        return view('produtos.index', [
+            'prods' => $prods,
+        ]);
+    }
+     Produto::withTrashed()...
+            |isso é eloguent...
 -----------------------------------------------------------------------------
 salvando extenções
 
