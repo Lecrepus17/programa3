@@ -62,6 +62,8 @@ php artisan make:factory ProdutoFactory
     }
      Produto::withTrashed()...
             |isso é eloguent...
+
+            Eloquent: API Resources
 -----------------------------------------------------------------------------
 salvando extenções
 
