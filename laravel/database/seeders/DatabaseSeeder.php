@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     {
        // $this->call(ProdutoSeeder::class);
 
-       Produto::factory(50)->create();
+       Produto::factory(200)->create();
 
     }
 }

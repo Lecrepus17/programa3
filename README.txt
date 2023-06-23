@@ -42,6 +42,8 @@ php artisan lang:publish
 // instalar pacote de lingua traduzido
 composer require lucascudo/laravel-pt-br-localization --dev
 php artisan vendor:publish --tag=laravel-pt-br-localization
+//paginas
+php artisan vendor:publish --tag=laravel-pagination
  
 
 // seeders conteudo banco

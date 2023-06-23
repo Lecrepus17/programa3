@@ -10,7 +10,7 @@
     <input type="text" name="busca">
     <select name="ord">
         <option value="asc">Crescente</option>
-        <option value="desc">Secrescente</option>
+        <option value="desc">Decrescente</option>
     </select>
     <input type="submit" value="buscar">
 </form>
@@ -32,5 +32,6 @@
         </tr>
         @endforeach
     </table>
+    {{ $prods->links('vendor.pagination.default') }}
     <a href="{{route('produtos.add')}}">adicionar produtos</a>
 @endsection

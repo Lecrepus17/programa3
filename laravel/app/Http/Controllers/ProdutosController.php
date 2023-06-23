@@ -12,17 +12,19 @@ class ProdutosController extends Controller
         if ($request->isMethod('POST')){
             $ord = $request->ord == 'asc' ? 'asc' : 'desc';
             $busca = $request->busca;
-            $prods = Produto::where('name', 'LIKE', "%{$busca}%")->orderBy('name', $ord)->get();
+            $prods = Produto::where('name', 'LIKE', "%{$busca}%")->orderBy('name', $ord)->paginate();
             return view('produtos.index', [
                 'prods' => $prods,
             ]);
         } else {
-        $prods = Produto::all();
+        //$prods = Produto::all();
+        $prods = Produto::paginate();
+    }
         // $prods = Produto::withTrashed()->get(); ou $prods = Produto::onlyTrashed()->get();
         return view('produtos.index', [
             'prods' => $prods,
         ]);
-    }}
+}
     public function add(){
         return view('produtos.add');
     }
