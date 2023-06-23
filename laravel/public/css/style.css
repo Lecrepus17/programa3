@@ -5,5 +5,5 @@ body{
     border:2px dashed pink;
 }
 .pagination ul li {
-
+    float: left;
 }
