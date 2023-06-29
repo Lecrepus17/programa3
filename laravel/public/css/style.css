@@ -1,9 +1,11 @@
 body{
-    background-color: rgb(95, 45, 153);
+    background-color: rgb(197, 215, 248);
 }
 .pagination{
     border:2px dashed pink;
 }
-.pagination ul li {
+.pagination li {
     float: left;
+    list-style-type: none;
+    margin-right: 10px;
 }

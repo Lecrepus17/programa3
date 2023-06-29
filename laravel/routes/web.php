@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,12 +18,30 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos');
-Route::post('/produtos', [ProdutosController::class, 'index']);
-Route::get('/produtos/add', [ProdutosController::class, 'add'])->name('produtos.add');
-Route::post('/produtos/add', [ProdutosController::class, 'addSave'])->name('produtos.addSave');
-Route::get('/produtos/{produto}', [ProdutosController::class, 'view'])->name('produtos.view');
-Route::get('/produtos/edit/{produto}', [ProdutosController::class, 'edit'])->name('produtos.edit');
-Route::post('/produtos/edit/{produto}', [ProdutosController::class, 'editSave'])->name('produtos.editSave');
-Route::get('/produtos/delete/{produto}', [ProdutosController::class, 'delete'])->name('produtos.delete');
-Route::delete('/produtos/delete/{produto}', [ProdutosController::class, 'deleteForReal'])->name('produtos.deleteForReal');
+Route::prefix('/produtos')->group(function (){
+Route::get('', [ProdutosController::class, 'index'])->name('produtos');
+Route::post('', [ProdutosController::class, 'index']);
+Route::get('/add', [ProdutosController::class, 'add'])->name('produtos.add');
+Route::post('/add', [ProdutosController::class, 'addSave'])->name('produtos.addSave');
+Route::get('/{produto}', [ProdutosController::class, 'view'])->name('produtos.view');
+Route::get('/edit/{produto}', [ProdutosController::class, 'edit'])->name('produtos.edit');
+Route::post('/edit/{produto}', [ProdutosController::class, 'editSave'])->name('produtos.editSave');
+Route::get('/delete/{produto}', [ProdutosController::class, 'delete'])->name('produtos.delete');
+Route::delete('/delete/{produto}', [ProdutosController::class, 'deleteForReal'])->name('produtos.deleteForReal');
+});
+
+
+
+Route::prefix('/usuarios')->group(function (){
+Route::get('', [UsuariosController::class, 'index'])->name('usuarios');
+Route::post('', [UsuariosController::class, 'index']);
+Route::get('/add', [UsuariosController::class, 'add'])->name('usuarios.add');
+Route::post('/add', [UsuariosController::class, 'addSave'])->name('usuarios.addSave');
+Route::get('/{usuario}', [UsuariosController::class, 'view'])->name('usuarios.view');
+Route::get('/edit/{usuario}', [UsuariosController::class, 'edit'])->name('usuarios.edit');
+Route::post('/edit/{usuario}', [UsuariosController::class, 'editSave'])->name('usuarios.editSave');
+Route::get('/delete/{usuario}', [UsuariosController::class, 'delete'])->name('usuarios.delete');
+Route::delete('/delete/{usuario}', [UsuariosController::class, 'deleteForReal'])->name('usuarios.deleteForReal');
+});
+
+

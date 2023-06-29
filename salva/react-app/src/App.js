@@ -1,7 +1,6 @@
 import {useState} from "react"
 export const App = () => {
   const [quantidade, setQuantidade] = useState(0)
-  const [quantidade2, setQuantidade2] = useState(0)
 
   const aumenta = () => {
     setQuantidade((q) => q+1)

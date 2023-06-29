@@ -120,3 +120,10 @@ Caneta e toque	Nenhuma entrada à caneta ou por toque disponível para este víd
 
 
 extension pack blade tem que adicionar codigo
+
+---------------------------------------------------------------------------------
+
+
+
+
+
