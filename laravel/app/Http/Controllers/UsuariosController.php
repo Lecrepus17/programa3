@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 
 class UsuariosController extends Controller
 {
@@ -29,15 +31,13 @@ class UsuariosController extends Controller
         return view('usuarios.add');
     }
     public function addSave(Request $form, Usuario $Usuario){
-        $dados['password'] = bcrypt($form->password);
         $dados = $form->validate([
             'name' => ['required'],
             'email' => ['required', Rule::unique('usuarios')],
             'password' => ['required']
         ]);
-
+        $dados['password'] = Hash::make($form['password']);
         Usuario::create($dados);
-
         return redirect()->route('usuarios')->with('sucesso', 'Usuario inserido com sucesso!');
     }
     public function edit(Usuario $Usuario){
@@ -71,5 +71,23 @@ class UsuariosController extends Controller
     public function deletefORrEAL(Usuario $Usuario){
         $Usuario->delete();
         return redirect()->route('usuarios')->with('sucesso', 'Usuario deletado com sucesso!');
+    }
+    public function login(Request $request){
+        if($request->isMethod('POST')){
+            $data = $request->validate([
+                'email' => 'required',
+                'password' => 'required'
+            ]);
+            if (Auth::attempt($data)){
+                return redirect()->route('home');
+            } else {
+                return redirect()->route('usuarios.login')->with('erro', 'Deu ruim');
+            }
+        }
+        return view('usuarios.login');
+    }
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('home');
     }
 }

@@ -18,7 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::prefix('/produtos')->group(function (){
+Route::post('/login', [UsuariosController::class, 'login'])->name('login');
+Route::get('/login', [UsuariosController::class, 'login']);
+Route::get('/logout', [UsuariosController::class, 'logout'])->name('usuarios.logout');
+
+Route::prefix('/produtos')->middleware('auth')->group(function (){
 Route::get('', [ProdutosController::class, 'index'])->name('produtos');
 Route::post('', [ProdutosController::class, 'index']);
 Route::get('/add', [ProdutosController::class, 'add'])->name('produtos.add');
@@ -32,7 +36,7 @@ Route::delete('/delete/{produto}', [ProdutosController::class, 'deleteForReal'])
 
 
 
-Route::prefix('/usuarios')->group(function (){
+Route::prefix('/usuarios')->middleware('auth')->group(function (){
 Route::get('', [UsuariosController::class, 'index'])->name('usuarios');
 Route::post('', [UsuariosController::class, 'index']);
 Route::get('/add', [UsuariosController::class, 'add'])->name('usuarios.add');
@@ -43,5 +47,4 @@ Route::post('/edit/{usuario}', [UsuariosController::class, 'editSave'])->name('u
 Route::get('/delete/{usuario}', [UsuariosController::class, 'delete'])->name('usuarios.delete');
 Route::delete('/delete/{usuario}', [UsuariosController::class, 'deleteForReal'])->name('usuarios.deleteForReal');
 });
-
 
