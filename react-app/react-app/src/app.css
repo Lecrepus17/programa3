@@ -1,0 +1,13 @@
+
+
+.app {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+ul {
+    list-style-type: none;
+}
+li {
+    display: flex; justify-content: space-between;
+}
