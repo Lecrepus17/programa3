@@ -32,6 +32,8 @@ php artisan migrate:refresh
 php artisan migrate:rollback
 // deixar delete soft
 php artisan make:migration add_soft_deletes_to_produtos_table
+php artisan make:migration add_email_verified_at_to_usuarios_table
+
 
 // criar model
 php artisan make:model Produto
@@ -66,6 +68,12 @@ php artisan make:factory ProdutoFactory
             |isso é eloguent...
 
             Eloquent: API Resources
+
+
+
+    // mailHog
+    baixar 64
+
 -----------------------------------------------------------------------------
 salvando extenções
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuario;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
@@ -37,7 +38,10 @@ class UsuariosController extends Controller
             'password' => ['required']
         ]);
         $dados['password'] = Hash::make($form['password']);
-        Usuario::create($dados);
+// lança um evento que vai enviar um email para o usuario
+        $user = Usuario::create($dados);
+        event(new Registered($user));
+
         return redirect()->route('usuarios')->with('sucesso', 'Usuario inserido com sucesso!');
     }
     public function edit(Usuario $Usuario){

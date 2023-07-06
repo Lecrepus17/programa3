@@ -16,6 +16,7 @@
             <a href="{{ route('usuarios.logout') }}">Logout</a>
         @else
         <a href="{{ route('login') }}">Login</a>
+        <a href="{{ route('usuarios.add') }}">New Login</a>
         @endif
     </div>
 <div>
