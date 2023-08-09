@@ -33,5 +33,5 @@
         @endforeach
     </table>
     {{ $prods->links('vendor.pagination.default') }}
-    <a href="{{route('produtos.add')}}">adicionar produtos</a>
+    <a href="">adicionar produtos</a>
 @endsection

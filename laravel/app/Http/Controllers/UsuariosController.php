@@ -85,7 +85,7 @@ class UsuariosController extends Controller
             if (Auth::attempt($data)){
                 return redirect()->route('home');
             } else {
-                return redirect()->route('usuarios.login')->with('erro', 'Deu ruim');
+                return redirect()->route('login')->with('erro', 'Deu ruim');
             }
         }
         return view('usuarios.login');

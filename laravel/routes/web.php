@@ -39,15 +39,15 @@ URL::signedRoute('verification.verify',[
     'hash' => Auth::user(),
 ]);*/
 
-Route::prefix('/produtos')->middleware('auth')->group(function (){
-Route::get('', [ProdutosController::class, 'index'])->name('produtos');
+Route::prefix('/produtos')->group(function (){
+Route::get('', [ProdutosController::class, 'index'])->name('produtos')->middleware('auth');
 Route::post('', [ProdutosController::class, 'index']);
 
-Route::get('/{produto}', [ProdutosController::class, 'view'])->name('produtos.view');
-Route::get('/edit/{produto}', [ProdutosController::class, 'edit'])->name('produtos.edit');
-Route::post('/edit/{produto}', [ProdutosController::class, 'editSave'])->name('produtos.editSave');
-Route::get('/delete/{produto}', [ProdutosController::class, 'delete'])->name('produtos.delete');
-Route::delete('/delete/{produto}', [ProdutosController::class, 'deleteForReal'])->name('produtos.deleteForReal');
+Route::get('/{produto}', [ProdutosController::class, 'view'])->name('produtos.view')->middleware('auth');
+Route::get('/edit/{produto}', [ProdutosController::class, 'edit'])->name('produtos.edit')->middleware('auth');
+Route::post('/edit/{produto}', [ProdutosController::class, 'editSave'])->name('produtos.editSave')->middleware('auth');
+Route::get('/delete/{produto}', [ProdutosController::class, 'delete'])->name('produtos.delete')->middleware('auth');
+Route::delete('/delete/{produto}', [ProdutosController::class, 'deleteForReal'])->name('produtos.deleteForReal')->middleware('auth');
 });
 
 
