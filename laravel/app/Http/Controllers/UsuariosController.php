@@ -83,7 +83,7 @@ class UsuariosController extends Controller
                 'password' => 'required'
             ]);
             if (Auth::attempt($data)){
-                return redirect()->route('home');
+                return redirect()->intended(route('home'));
             } else {
                 return redirect()->route('login')->with('erro', 'Deu ruim');
             }

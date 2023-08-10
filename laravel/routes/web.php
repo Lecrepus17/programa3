@@ -58,3 +58,7 @@ Route::get('/delete/{usuario}', [UsuariosController::class, 'delete'])->name('us
 Route::delete('/delete/{usuario}', [UsuariosController::class, 'deleteForReal'])->name('usuarios.deleteForReal');
 });
 
+Route::prefix('/uploads')->middleware('auth')->group(function (){
+    Route::get('', [UsuariosController::class, 'index'])->name('uploads');
+    Route::post('', [UsuariosController::class, 'save'])->name('save');
+    });
