@@ -33,11 +33,7 @@ Route::get('email/verify/{id}/{hash}', function(EmailVerificationRequest $reques
     $request->fulfill();
     return redirect()->route('home');
 })->middleware(['auth', 'signed'])->name('verification.verify');
-/**
-URL::signedRoute('verification.verify',[
-    'id' => Auth::id(),
-    'hash' => Auth::user(),
-]);*/
+
 
 Route::prefix('/produtos')->middleware('auth')->group(function (){
 Route::get('', [ProdutosController::class, 'index'])->name('produtos');
